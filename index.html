@@ -217,7 +217,7 @@
     }
 
     .chile-map-container {
-      position: relative; width: 280px;
+      position: relative; width: 160px;
     }
 
     .chile-map-svg {
@@ -721,7 +721,10 @@
       .hamburger { display: flex; }
 
       .hero-content { grid-template-columns: 1fr; text-align: center; }
-      .hero-map-wrapper { display: none; }
+      .hero-map-wrapper { display: flex; justify-content: center; margin-top: 2rem; }
+      .chile-map-container { width: 100px; }
+      .floating-card { display: none; }
+      .map-dot-label { font-size: 0.6rem; }
       .hero-btns { justify-content: center; }
       .hero-stats { justify-content: center; }
 
@@ -884,6 +887,74 @@
     </div>
   </div>
 </section>
+
+<!-- ─── FOTO TERRENO HERO ─── -->
+<section id="proof" style="padding:0;position:relative;overflow:hidden;min-height:520px;display:flex;align-items:center">
+  <!-- Foto de fondo -->
+  <div style="position:absolute;inset:0;z-index:0">
+    <img id="terreno-bg" src="images/terreno-1.jpg"
+      onerror="this.style.display='none'"
+      alt="Pitch Marketing en terreno"
+      style="width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(0.45)"/>
+    <!-- Fallback gradient si no hay foto -->
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,#0f0020 0%,#1a0040 40%,#2d0060 70%,#0a0015 100%)"></div>
+  </div>
+  <!-- Overlay gradiente lateral -->
+  <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(8,8,16,0.85) 0%,rgba(8,8,16,0.3) 60%,transparent 100%)"></div>
+  <!-- Partículas decorativas -->
+  <div style="position:absolute;inset:0;z-index:1;background-image:radial-gradient(circle,rgba(168,85,247,0.15) 1px,transparent 1px);background-size:40px 40px"></div>
+
+  <div class="container" style="position:relative;z-index:2;padding:5rem 2rem">
+    <div style="max-width:600px">
+      <div class="section-tag fade-in">Pitch en terreno</div>
+      <h2 class="fade-in" style="font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;color:var(--white);line-height:1.05;margin-bottom:1rem;letter-spacing:-1px;transition-delay:0.1s">
+        Así generamos<br>
+        <span style="background:linear-gradient(135deg,#a855f7,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent">resultados reales</span><br>
+        para tu negocio
+      </h2>
+      <p class="fade-in" style="font-size:1.1rem;color:rgba(255,255,255,0.75);line-height:1.7;max-width:480px;margin-bottom:2rem;transition-delay:0.2s">
+        Nuestro equipo sale al terreno, contacta clientes potenciales cara a cara y los dirige directamente a tu negocio. Sin intermediarios, sin spam — resultados concretos desde el primer día.
+      </p>
+      <!-- Stats inline -->
+      <div class="fade-in" style="display:flex;gap:2.5rem;flex-wrap:wrap;margin-bottom:2.5rem;transition-delay:0.3s">
+        <div>
+          <div style="font-size:2rem;font-weight:900;background:linear-gradient(135deg,#fff,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent">+50K</div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px">Personas contactadas</div>
+        </div>
+        <div>
+          <div style="font-size:2rem;font-weight:900;background:linear-gradient(135deg,#fff,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent">+10K</div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px">Clientes derivados</div>
+        </div>
+        <div>
+          <div style="font-size:2rem;font-weight:900;background:linear-gradient(135deg,#fff,#22c55e);-webkit-background-clip:text;-webkit-text-fill-color:transparent">95%</div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px">Satisfacción</div>
+        </div>
+      </div>
+      <div class="fade-in" style="transition-delay:0.4s">
+        <a href="https://wa.me/56931977929?text=Hola,%20quiero%20más%20clientes%20para%20mi%20negocio" target="_blank" class="btn btn-primary btn-lg" style="margin-right:1rem">Quiero clientes así →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Foto flotante esquina derecha (decorativa en desktop) -->
+  <div class="fade-in" style="position:absolute;right:5%;bottom:0;z-index:2;transition-delay:0.5s;display:none" id="proof-float">
+    <div style="width:260px;height:360px;border-radius:20px 20px 0 0;overflow:hidden;border:2px solid rgba(168,85,247,0.4);box-shadow:0 0 60px rgba(124,58,237,0.4)">
+      <img src="images/terreno-1.jpg" alt="Promotor Pitch Marketing"
+        style="width:100%;height:100%;object-fit:cover;object-position:center top"
+        onerror="this.parentElement.parentElement.style.display='none'"/>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media(min-width:900px){
+    #proof-float { display:block !important; }
+    #proof { min-height: 600px; }
+  }
+  @media(max-width:768px){
+    #proof { min-height: 480px; }
+  }
+</style>
 
 <!-- ─── QUIÉNES SOMOS ─── -->
 <section id="about">
