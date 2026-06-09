@@ -679,6 +679,26 @@
 
     .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
 
+    /* ─── TEAM PHOTOS ─── */
+    .team-photo-card {
+      position: relative; border-radius: 16px; overflow: hidden;
+      cursor: default;
+    }
+    .team-photo-card img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s ease; display: block;
+    }
+    .team-photo-card:hover img { transform: scale(1.05); }
+    .team-photo-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.5rem 1.2rem 1rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      transform: translateY(100%); transition: transform 0.3s ease;
+    }
+    .team-photo-card:hover .team-photo-overlay { transform: translateY(0); }
+    .team-photo-name { font-size: 1rem; font-weight: 700; color: var(--white); }
+    .team-photo-role { font-size: 0.8rem; color: var(--purple-light); margin-top: 0.2rem; }
+
     /* ─── MOBILE NAV ─── */
     .mobile-menu {
       display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
@@ -741,7 +761,23 @@
 
 <!-- ─── NAV ─── -->
 <nav id="navbar">
-  <div class="nav-logo">PITCH</div>
+  <!-- Logo SVG inline -->
+  <a href="#hero" style="text-decoration:none;display:flex;align-items:center;gap:0.6rem">
+    <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- C shape gray -->
+      <path d="M20 6 C10 6 4 13 4 22 C4 31 10 38 20 38 L20 32 C13 32 10 27.5 10 22 C10 16.5 13 12 20 12 L20 6Z" fill="#9ca3af"/>
+      <!-- vertical bar -->
+      <rect x="19" y="6" width="4" height="38" rx="2" fill="#9ca3af"/>
+      <!-- M purple right side -->
+      <path d="M23 6 L23 38 L27 38 L27 22 L32 30 L37 22 L37 38 L41 38 L41 6 L37 6 L32 16 L27 6 Z" fill="#a855f7"/>
+      <!-- overlap bar purple -->
+      <rect x="19" y="6" width="4" height="38" rx="2" fill="#a855f7" opacity="0.7"/>
+    </svg>
+    <div style="line-height:1">
+      <div style="font-size:1rem;font-weight:900;letter-spacing:-0.5px;background:linear-gradient(135deg,#fff,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent">PITCH</div>
+      <div style="font-size:0.6rem;font-weight:600;color:#9ca3af;letter-spacing:2px">MARKETING</div>
+    </div>
+  </a>
   <ul class="nav-links">
     <li><a href="#about">Nosotros</a></li>
     <li><a href="#services">Servicios</a></li>
@@ -871,22 +907,22 @@
       </div>
       <div class="about-visual fade-in" style="transition-delay:0.2s">
         <div class="about-card">
-          <div class="about-card-icon">🎯</div>
+          <div class="about-card-icon" style="font-size:1.4rem;color:var(--purple-light)">◎</div>
           <h4>Marketing en Terreno</h4>
           <p>Contacto directo con clientes potenciales donde están.</p>
         </div>
         <div class="about-card">
-          <div class="about-card-icon">📈</div>
+          <div class="about-card-icon" style="font-size:1.4rem;color:var(--purple-light)">↗</div>
           <h4>Resultados Medibles</h4>
           <p>KPIs claros en cada campaña ejecutada.</p>
         </div>
         <div class="about-card">
-          <div class="about-card-icon">🤝</div>
+          <div class="about-card-icon" style="font-size:1.4rem;color:var(--purple-light)">✦</div>
           <h4>Equipos Propios</h4>
           <p>Promotores entrenados y comprometidos con tu marca.</p>
         </div>
         <div class="about-card">
-          <div class="about-card-icon">🏆</div>
+          <div class="about-card-icon" style="font-size:1.4rem;color:var(--purple-light)">★</div>
           <h4>+95% Satisfacción</h4>
           <p>Empresas que renuevan campaña tras campaña.</p>
         </div>
@@ -1035,21 +1071,56 @@
         </div>
       </div>
       <div class="big-map fade-in" style="transition-delay:0.3s">
-        <svg viewBox="0 0 120 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="mapGrad2" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.7"/>
-              <stop offset="100%" stop-color="#a855f7" stop-opacity="0.4"/>
-            </linearGradient>
-          </defs>
-          <path d="M55,10 C60,8 70,10 72,15 L78,30 C80,40 82,50 80,60 L78,80 C76,90 75,100 74,110 L72,130 C70,145 68,155 67,165 L65,180 C63,195 60,210 58,225 L56,240 C54,255 52,265 51,275 L50,290 C49,305 50,320 50,335 L49,350 C48,365 47,375 46,385 L45,400 C44,410 45,420 44,430 L43,445 C42,455 40,460 38,465 C36,465 34,460 33,450 L32,435 C31,425 32,415 31,405 L30,390 C29,380 28,370 28,360 L29,345 C30,330 31,315 32,300 L33,285 C34,270 34,255 35,240 L36,225 C37,210 38,195 39,180 L40,165 C41,150 42,135 43,120 L44,100 C45,85 46,70 47,55 L49,40 C51,28 53,12 55,10 Z" fill="url(#mapGrad2)" stroke="rgba(168,85,247,0.8)" stroke-width="1.5"/>
-          <!-- Puntos de región destacados -->
-          <circle cx="46" cy="200" r="5" fill="#a855f7" opacity="0.9"><animate attributeName="r" values="4;7;4" dur="2s" repeatCount="indefinite"/></circle>
-          <circle cx="44" cy="230" r="5" fill="#a855f7" opacity="0.9"><animate attributeName="r" values="4;7;4" dur="2s" begin="0.4s" repeatCount="indefinite"/></circle>
-          <circle cx="43" cy="260" r="5" fill="#a855f7" opacity="0.9"><animate attributeName="r" values="4;7;4" dur="2s" begin="0.8s" repeatCount="indefinite"/></circle>
-          <circle cx="48" cy="165" r="5" fill="#a855f7" opacity="0.9"><animate attributeName="r" values="4;7;4" dur="2s" begin="1.2s" repeatCount="indefinite"/></circle>
-          <circle cx="50" cy="145" r="5" fill="#a855f7" opacity="0.9"><animate attributeName="r" values="4;7;4" dur="2s" begin="1.6s" repeatCount="indefinite"/></circle>
-        </svg>
+        <div style="position:relative;display:inline-block">
+          <!-- Mapa de Chile con overlay morado -->
+          <div style="width:280px;height:560px;border-radius:20px;overflow:hidden;position:relative;border:1px solid rgba(124,58,237,0.3);box-shadow:0 0 60px rgba(124,58,237,0.3)">
+            <svg width="280" height="560" viewBox="0 0 280 560" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:0;left:0;z-index:0">
+              <defs>
+                <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#0a0a18"/>
+                  <stop offset="100%" stop-color="#0f0520"/>
+                </linearGradient>
+                <filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+              <rect width="280" height="560" fill="url(#bgGrad)"/>
+              <!-- Estrellas de fondo -->
+              <circle cx="30" cy="40" r="1" fill="white" opacity="0.4"/>
+              <circle cx="80" cy="20" r="1.5" fill="white" opacity="0.3"/>
+              <circle cx="200" cy="50" r="1" fill="white" opacity="0.4"/>
+              <circle cx="240" cy="100" r="1" fill="white" opacity="0.3"/>
+              <circle cx="20" cy="120" r="1.5" fill="white" opacity="0.2"/>
+              <circle cx="260" cy="200" r="1" fill="white" opacity="0.4"/>
+              <circle cx="15" cy="300" r="1" fill="white" opacity="0.3"/>
+              <circle cx="250" cy="380" r="1.5" fill="white" opacity="0.2"/>
+              <!-- Forma Chile -->
+              <path d="M148,18 C152,16 162,18 166,24 L172,40 C176,55 178,70 176,85 L174,105 C172,120 171,135 170,150 L168,170 C166,188 163,202 161,216 L159,232 C157,248 155,260 154,272 L153,288 C152,304 153,320 153,336 L152,352 C151,368 150,380 149,392 L148,408 C147,420 148,432 147,444 L146,458 C145,468 143,473 141,477 C139,477 137,472 136,462 L135,447 C134,437 135,427 134,415 L133,400 C132,388 131,376 131,365 L132,350 C133,334 134,318 135,302 L136,287 C137,271 137,255 138,240 L139,225 C140,210 141,194 142,178 L143,163 C144,147 145,131 146,115 L147,97 C148,81 149,65 150,49 L152,34 C152,28 150,20 148,18 Z" fill="rgba(120,40,220,0.5)" stroke="rgba(168,85,247,0.9)" stroke-width="1.5" filter="url(#glow)"/>
+              <!-- Brillo interior del mapa -->
+              <path d="M148,18 C152,16 162,18 166,24 L172,40 C176,55 178,70 176,85 L174,105 C172,120 171,135 170,150 L168,170 C166,188 163,202 161,216 L159,232 C157,248 155,260 154,272 L153,288 C152,304 153,320 153,336 L152,352 C151,368 150,380 149,392 L148,408 C147,420 148,432 147,444 L146,458 C145,468 143,473 141,477 C139,477 137,472 136,462 L135,447 C134,437 135,427 134,415 L133,400 C132,388 131,376 131,365 L132,350 C133,334 134,318 135,302 L136,287 C137,271 137,255 138,240 L139,225 C140,210 141,194 142,178 L143,163 C144,147 145,131 146,115 L147,97 C148,81 149,65 150,49 L152,34 C152,28 150,20 148,18 Z" fill="none" stroke="rgba(200,160,255,0.3)" stroke-width="3" filter="url(#glow)"/>
+              <!-- Líneas horizontales de región -->
+              <line x1="128" y1="260" x2="178" y2="260" stroke="rgba(168,85,247,0.4)" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="128" y1="310" x2="178" y2="310" stroke="rgba(168,85,247,0.4)" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="128" y1="355" x2="178" y2="355" stroke="rgba(168,85,247,0.4)" stroke-width="1" stroke-dasharray="3,3"/>
+              <!-- Puntos de cobertura con pulse -->
+              <circle cx="148" cy="270" r="5" fill="#a855f7" opacity="0.9" filter="url(#glow)"><animate attributeName="r" values="4;8;4" dur="2s" repeatCount="indefinite"/></circle>
+              <circle cx="145" cy="315" r="5" fill="#a855f7" opacity="0.9" filter="url(#glow)"><animate attributeName="r" values="4;8;4" dur="2s" begin="0.4s" repeatCount="indefinite"/></circle>
+              <circle cx="143" cy="358" r="5" fill="#a855f7" opacity="0.9" filter="url(#glow)"><animate attributeName="r" values="4;8;4" dur="2s" begin="0.8s" repeatCount="indefinite"/></circle>
+              <circle cx="152" cy="228" r="5" fill="#a855f7" opacity="0.9" filter="url(#glow)"><animate attributeName="r" values="4;8;4" dur="2s" begin="1.2s" repeatCount="indefinite"/></circle>
+              <circle cx="155" cy="200" r="5" fill="#a855f7" opacity="0.9" filter="url(#glow)"><animate attributeName="r" values="4;8;4" dur="2s" begin="1.6s" repeatCount="indefinite"/></circle>
+              <!-- Etiquetas -->
+              <text x="60" y="274" fill="#a855f7" font-size="9" font-family="Inter,sans-serif" font-weight="700">⬡ ARAUCANÍA</text>
+              <text x="60" y="319" fill="#a855f7" font-size="9" font-family="Inter,sans-serif" font-weight="700">⬡ LOS RÍOS</text>
+              <text x="60" y="362" fill="#a855f7" font-size="9" font-family="Inter,sans-serif" font-weight="700">⬡ LOS LAGOS</text>
+              <!-- Líneas conectoras -->
+              <line x1="115" y1="270" x2="143" y2="270" stroke="rgba(168,85,247,0.6)" stroke-width="1"/>
+              <line x1="115" y1="315" x2="140" y2="315" stroke="rgba(168,85,247,0.6)" stroke-width="1"/>
+              <line x1="115" y1="358" x2="138" y2="358" stroke="rgba(168,85,247,0.6)" stroke-width="1"/>
+              <!-- Badge inferior -->
+              <rect x="60" y="415" width="160" height="44" rx="10" fill="rgba(124,58,237,0.2)" stroke="rgba(168,85,247,0.4)" stroke-width="1"/>
+              <text x="140" y="433" fill="white" font-size="8" font-family="Inter,sans-serif" font-weight="600" text-anchor="middle">PRESENTES EN</text>
+              <text x="140" y="450" fill="#a855f7" font-size="10" font-family="Inter,sans-serif" font-weight="700" text-anchor="middle">Araucanía · Los Ríos · Los Lagos</text>
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1308,6 +1379,66 @@
   </div>
 </section>
 
+<!-- ─── EQUIPO EN ACCIÓN ─── -->
+<section id="team-photos" style="background:var(--black);padding:4rem 2rem">
+  <div class="container">
+    <div class="text-center fade-in" style="margin-bottom:3rem">
+      <span class="section-tag">El equipo</span>
+      <h2 class="section-title">Personas reales, resultados reales</h2>
+      <p class="section-subtitle">Nuestros colaboradores son el corazón de Pitch Marketing. Personas con actitud, energía y vocación comercial.</p>
+    </div>
+    <!-- Fila principal grande -->
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem;margin-bottom:1rem">
+      <div class="team-photo-card" style="height:340px">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&h=500&fit=crop&crop=faces" alt="Colaboradora Pitch Marketing" loading="lazy"/>
+        <div class="team-photo-overlay">
+          <div class="team-photo-name">Valentina M.</div>
+          <div class="team-photo-role">Ejecutiva Comercial — Temuco</div>
+        </div>
+      </div>
+      <div class="team-photo-card" style="height:340px">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=faces" alt="Colaborador Pitch Marketing" loading="lazy"/>
+        <div class="team-photo-overlay">
+          <div class="team-photo-name">Diego R.</div>
+          <div class="team-photo-role">Supervisor — Valdivia</div>
+        </div>
+      </div>
+      <div class="team-photo-card" style="height:340px">
+        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=500&fit=crop&crop=faces" alt="Colaboradora Pitch Marketing" loading="lazy"/>
+        <div class="team-photo-overlay">
+          <div class="team-photo-name">Camila S.</div>
+          <div class="team-photo-role">Promotora — Osorno</div>
+        </div>
+      </div>
+    </div>
+    <!-- Fila secundaria -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 2fr;gap:1rem">
+      <div class="team-photo-card" style="height:260px">
+        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=faces" alt="Colaborador Pitch Marketing" loading="lazy"/>
+        <div class="team-photo-overlay">
+          <div class="team-photo-name">Rodrigo V.</div>
+          <div class="team-photo-role">Jefe de Equipo — Concepción</div>
+        </div>
+      </div>
+      <div class="team-photo-card" style="height:260px">
+        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&fit=crop&crop=faces" alt="Colaboradora Pitch Marketing" loading="lazy"/>
+        <div class="team-photo-overlay">
+          <div class="team-photo-name">Natalia P.</div>
+          <div class="team-photo-role">Ejecutiva — Puerto Montt</div>
+        </div>
+      </div>
+      <div class="team-photo-card" style="height:260px;position:relative;overflow:hidden;border-radius:16px;background:linear-gradient(135deg,var(--purple-dark),var(--gray2));display:flex;align-items:center;justify-content:center;border:1px solid rgba(124,58,237,0.3)">
+        <div style="text-align:center;padding:2rem;z-index:1">
+          <div style="font-size:3rem;margin-bottom:0.8rem">🚀</div>
+          <div style="font-size:1.6rem;font-weight:900;color:var(--white);line-height:1.1;margin-bottom:0.5rem">¿Serás el<br>próximo?</div>
+          <div style="font-size:0.9rem;color:rgba(255,255,255,0.6);margin-bottom:1.5rem">Únete al mejor equipo comercial del sur de Chile</div>
+          <a href="#apply" class="btn btn-primary">Postular ahora →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ─── CULTURA ─── -->
 <section id="culture">
   <div class="container">
@@ -1360,24 +1491,30 @@
         <p class="section-subtitle">Completa el formulario y un miembro del equipo Pitch se contactará contigo en menos de 24 horas para coordinar una entrevista.</p>
         <div class="quick-actions" style="margin-top:2rem">
           <a href="https://wa.me/56931977929?text=Hola,%20quiero%20postular%20a%20Pitch%20Marketing" target="_blank" class="quick-action-btn">
-            <div class="quick-action-icon green">💬</div>
+            <div class="quick-action-icon green" style="background:rgba(37,211,102,0.15)">
+              <svg width="24" height="24" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="18" fill="#25D366"/><path d="M27.3 8.7A13.1 13.1 0 0 0 18 5C10.8 5 5 10.8 5 18c0 2.3.6 4.5 1.7 6.4L5 31l6.8-1.8A13 13 0 0 0 18 31c7.2 0 13-5.8 13-13 0-3.5-1.4-6.7-3.7-9.3zm-9.3 20a10.8 10.8 0 0 1-5.5-1.5l-.4-.2-4 1 1-3.9-.3-.4A10.8 10.8 0 0 1 7.2 18C7.2 12 12 7.2 18 7.2S28.8 12 28.8 18 24 28.7 18 28.7zm5.9-8.1c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6 0-.3-.1-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.6-.7c.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5-.1-.2-.7-1.6-1-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.2.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 2-1.4.2-.7.2-1.2.1-1.3-.1-.1-.3-.2-.6-.3z" fill="white"/></svg>
+            </div>
             <div>
               <div style="font-weight:700;color:var(--white)">Postular por WhatsApp</div>
               <div style="font-size:0.8rem;color:var(--text-muted)">Respuesta inmediata</div>
             </div>
           </a>
           <a href="https://www.instagram.com/pitchmarketing.cl" target="_blank" class="quick-action-btn">
-            <div class="quick-action-icon purple">📸</div>
+            <div class="quick-action-icon purple" style="background:rgba(168,85,247,0.15)">
+              <svg width="24" height="24" viewBox="0 0 36 36" fill="none"><defs><radialGradient id="ig2" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#ffd600"/><stop offset="50%" stop-color="#ff0069"/><stop offset="100%" stop-color="#7638fa"/></radialGradient></defs><rect width="36" height="36" rx="10" fill="url(#ig2)"/><rect x="9" y="9" width="18" height="18" rx="5" stroke="white" stroke-width="2" fill="none"/><circle cx="18" cy="18" r="4.5" stroke="white" stroke-width="2" fill="none"/><circle cx="24" cy="12" r="1.2" fill="white"/></svg>
+            </div>
             <div>
               <div style="font-weight:700;color:var(--white)">Síguenos en Instagram</div>
               <div style="font-size:0.8rem;color:var(--text-muted)">@pitchmarketing.cl</div>
             </div>
           </a>
-          <a href="mailto:contacto@pitchmarketing.cl" class="quick-action-btn">
-            <div class="quick-action-icon blue">✉️</div>
+          <a href="https://www.youtube.com/@pitchmarketing" target="_blank" class="quick-action-btn">
+            <div class="quick-action-icon" style="background:rgba(255,0,0,0.15)">
+              <svg width="24" height="24" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#FF0000"/><path d="M27.6 13.4a2.5 2.5 0 0 0-1.7-1.7C24.3 11.3 18 11.3 18 11.3s-6.3 0-7.9.4a2.5 2.5 0 0 0-1.7 1.7C8 15 8 18 8 18s0 3 .4 4.6a2.5 2.5 0 0 0 1.7 1.7c1.6.4 7.9.4 7.9.4s6.3 0 7.9-.4a2.5 2.5 0 0 0 1.7-1.7C28 21 28 18 28 18s0-3-.4-4.6z" fill="white"/><polygon points="15.5,21.5 21.5,18 15.5,14.5" fill="#FF0000"/></svg>
+            </div>
             <div>
-              <div style="font-weight:700;color:var(--white)">Escríbenos un correo</div>
-              <div style="font-size:0.8rem;color:var(--text-muted)">contacto@pitchmarketing.cl</div>
+              <div style="font-weight:700;color:var(--white)">Canal de YouTube</div>
+              <div style="font-size:0.8rem;color:var(--text-muted)">@pitchmarketing</div>
             </div>
           </a>
         </div>
@@ -1441,25 +1578,37 @@
       <p class="section-subtitle">¿Quieres más clientes para tu empresa o tienes dudas sobre trabajar con nosotros? Escríbenos.</p>
     </div>
     <div class="contact-grid">
+      <!-- WhatsApp -->
       <a href="https://wa.me/56931977929" target="_blank" class="contact-card fade-in">
-        <div class="contact-card-icon">💬</div>
+        <div class="contact-card-icon">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="18" fill="#25D366"/><path d="M27.3 8.7A13.1 13.1 0 0 0 18 5C10.8 5 5 10.8 5 18c0 2.3.6 4.5 1.7 6.4L5 31l6.8-1.8A13 13 0 0 0 18 31c7.2 0 13-5.8 13-13 0-3.5-1.4-6.7-3.7-9.3zm-9.3 20a10.8 10.8 0 0 1-5.5-1.5l-.4-.2-4 1 1-3.9-.3-.4A10.8 10.8 0 0 1 7.2 18C7.2 12 12 7.2 18 7.2S28.8 12 28.8 18 24 28.7 18 28.7zm5.9-8.1c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6 0-.3-.1-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.6-.7c.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5-.1-.2-.7-1.6-1-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.2.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 2-1.4.2-.7.2-1.2.1-1.3-.1-.1-.3-.2-.6-.3z" fill="white"/></svg>
+        </div>
         <h4>WhatsApp</h4>
         <p>+56 9 3197 7929</p>
       </a>
+      <!-- Instagram -->
       <a href="https://www.instagram.com/pitchmarketing.cl" target="_blank" class="contact-card fade-in" style="transition-delay:0.1s">
-        <div class="contact-card-icon">📸</div>
+        <div class="contact-card-icon">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><defs><radialGradient id="ig1" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#ffd600"/><stop offset="50%" stop-color="#ff0069"/><stop offset="100%" stop-color="#7638fa"/></radialGradient></defs><rect width="36" height="36" rx="10" fill="url(#ig1)"/><rect x="9" y="9" width="18" height="18" rx="5" stroke="white" stroke-width="2" fill="none"/><circle cx="18" cy="18" r="4.5" stroke="white" stroke-width="2" fill="none"/><circle cx="24" cy="12" r="1.2" fill="white"/></svg>
+        </div>
         <h4>Instagram</h4>
         <p>@pitchmarketing.cl</p>
       </a>
-      <a href="mailto:contacto@pitchmarketing.cl" class="contact-card fade-in" style="transition-delay:0.2s">
-        <div class="contact-card-icon">✉️</div>
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@pitchmarketing" target="_blank" class="contact-card fade-in" style="transition-delay:0.2s">
+        <div class="contact-card-icon">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#FF0000"/><path d="M27.6 13.4a2.5 2.5 0 0 0-1.7-1.7C24.3 11.3 18 11.3 18 11.3s-6.3 0-7.9.4a2.5 2.5 0 0 0-1.7 1.7C8 15 8 18 8 18s0 3 .4 4.6a2.5 2.5 0 0 0 1.7 1.7c1.6.4 7.9.4 7.9.4s6.3 0 7.9-.4a2.5 2.5 0 0 0 1.7-1.7C28 21 28 18 28 18s0-3-.4-4.6z" fill="white"/><polygon points="15.5,21.5 21.5,18 15.5,14.5" fill="#FF0000"/></svg>
+        </div>
+        <h4>YouTube</h4>
+        <p>@pitchmarketing</p>
+      </a>
+      <!-- Correo -->
+      <a href="mailto:contacto@pitchmarketing.cl" class="contact-card fade-in" style="transition-delay:0.3s">
+        <div class="contact-card-icon">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="rgba(124,58,237,0.8)"/><rect x="7" y="11" width="22" height="14" rx="3" stroke="white" stroke-width="1.5" fill="none"/><path d="M7 14l11 7 11-7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
         <h4>Correo</h4>
         <p>contacto@pitchmarketing.cl</p>
-      </a>
-      <a href="#apply" class="contact-card fade-in" style="transition-delay:0.3s">
-        <div class="contact-card-icon">🚀</div>
-        <h4>Postular ahora</h4>
-        <p>Únete al equipo</p>
       </a>
     </div>
   </div>
@@ -1468,7 +1617,18 @@
 <!-- ─── FOOTER ─── -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">PITCH MARKETING CHILE</div>
+    <div style="display:flex;align-items:center;gap:0.6rem">
+      <svg width="36" height="36" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 6 C10 6 4 13 4 22 C4 31 10 38 20 38 L20 32 C13 32 10 27.5 10 22 C10 16.5 13 12 20 12 L20 6Z" fill="#9ca3af"/>
+        <rect x="19" y="6" width="4" height="38" rx="2" fill="#9ca3af"/>
+        <path d="M23 6 L23 38 L27 38 L27 22 L32 30 L37 22 L37 38 L41 38 L41 6 L37 6 L32 16 L27 6 Z" fill="#a855f7"/>
+        <rect x="19" y="6" width="4" height="38" rx="2" fill="#a855f7" opacity="0.7"/>
+      </svg>
+      <div style="line-height:1">
+        <div style="font-size:0.95rem;font-weight:900;background:linear-gradient(135deg,#fff,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent">PITCH</div>
+        <div style="font-size:0.55rem;font-weight:600;color:#9ca3af;letter-spacing:2px">MARKETING</div>
+      </div>
+    </div>
     <div class="footer-links">
       <a href="#about">Nosotros</a>
       <a href="#services">Servicios</a>
