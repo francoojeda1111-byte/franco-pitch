@@ -1,0 +1,26 @@
+{
+  "name": "Pitch Ventas — Ejecutivo en Ventas",
+  "short_name": "Pitch Ventas",
+  "description": "App de gestión para ejecutivos en ventas de Pitch Marketing: ventas, metas, comisiones, descuentos, objeciones y feedback.",
+  "lang": "es-CL",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#080810",
+  "theme_color": "#080810",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="112" fill="#0f0f1a"/>
+  <rect width="512" height="512" rx="112" fill="url(#bg)" fill-opacity="0.35"/>
+  <g transform="translate(112, 112) scale(6.5)">
+    <path d="M20 6 C10 6 4 13 4 22 C4 31 10 38 20 38 L20 32 C13 32 10 27.5 10 22 C10 16.5 13 12 20 12 L20 6Z" fill="#9ca3af"/>
+    <rect x="19" y="6" width="4" height="38" rx="2" fill="#9ca3af"/>
+    <path d="M23 6 L23 38 L27 38 L27 22 L32 30 L37 22 L37 38 L41 38 L41 6 L37 6 L32 16 L27 6 Z" fill="#a855f7"/>
+    <rect x="19" y="6" width="4" height="38" rx="2" fill="#a855f7" opacity="0.7"/>
+  </g>
+  <defs>
+    <radialGradient id="bg" cx="0.5" cy="0" r="1">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#0f0f1a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
